@@ -171,4 +171,11 @@ npm run test:unit
 npm run test:integration
 ```
 
+#### Output Test Coverage
+
+```sh
+npm run test:report
+```
+
 ## API Docs
+  - [Creators](api/creators/README.md)

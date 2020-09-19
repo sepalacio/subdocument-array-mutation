@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+
+# System Files
+.DS_Store
+
+# testing
+.nyc_output
+coverage
