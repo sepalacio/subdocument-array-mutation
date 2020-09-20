@@ -2,6 +2,14 @@
 
 > Add Content Creator user
 
+#### Request
+
+```js
+{
+  name: 'Jhon Doe'
+}
+```
+
 #### Response
 
 - Status 200:

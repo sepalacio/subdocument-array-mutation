@@ -8,7 +8,9 @@ const chalk = require('chalk')
 const express = require('express')
 const asyncify = require('express-asyncify')
 
+const DAU = require('./DAU')
 const api = require('./api')
+const mongooseConfig = require('./config/db')
 const { port } = require('./config/server')
 const addAppListeners = require('./server/addAppListeners')
 const expressErrorHandler = require('./server/expressErrorHandler')
@@ -29,8 +31,10 @@ app.use('/api/', api)
 
 expressErrorHandler(app)
 
-const startServer = async () => {
-  addAppListeners()
+const startApp = async () => {
+  const { connection } = await DAU.connect({ mongooseConfig })
+
+  addAppListeners(connection)
 
   app.listen(port, () => {
     console.info(chalk.green(`
@@ -43,7 +47,7 @@ Environment: ${NODE_ENV}`))
 
 // Run the server when this module is not required
 if (!module.parent) {
-  startServer().catch(handleFatalError)
+  startApp().catch(handleFatalError)
 }
 
 // Export for testing

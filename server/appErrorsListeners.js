@@ -3,12 +3,16 @@
 const appEmmiter = require('./appEmmiter')
 
 const logErrorEvent = logData => {
-  // @todo: Send error event data to an external logging tool
+  // @todo: Send error data to an external logging tool
   console.error(logData)
 }
 
 const setupLogExpressError = (errorLogger, eventName) => ({ req, error }) => errorLogger({
-  req,
+  params: req.params,
+  body: req.body,
+  method: req.method,
+  headers: req.headers,
+  url: req.originalUrl,
   logEvent: {
     severity: 'ERROR',
     eventName,
