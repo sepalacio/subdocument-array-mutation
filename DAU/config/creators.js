@@ -1,11 +1,11 @@
 'use strict'
 
-const availableOperations = [
-  '$add',
-  '$update',
-  '$remove'
-]
+const supportedOperations = {
+  add: '$add',
+  update: '$update',
+  remove: '$remove'
+}
 
 module.exports = {
-  availableOperations
+  supportedOperations
 }

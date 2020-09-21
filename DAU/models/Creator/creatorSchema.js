@@ -2,8 +2,7 @@
 
 const mongoose = require('mongoose')
 
-// const creatorMethods = require('./methods')
-// const creatorStatics = require('./statics')
+const creatorMethods = require('./methods')
 
 const Schema = mongoose.Schema
 
@@ -36,11 +35,8 @@ const creatorSchema = new Schema(
   }
 )
 
-// creatorSchema.methods = creatorMethods
-// creatorSchema.statics = creatorStatics
+creatorSchema.methods = creatorMethods
 
 module.exports = {
-  creatorSchema,
-  postSchema,
-  mentionSchema
+  creatorSchema
 }

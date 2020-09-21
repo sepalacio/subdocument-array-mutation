@@ -9,6 +9,11 @@ const errors = new Map([
     message: 'Creator already exists',
     status: 422
   }],
+  ['operationNotSupported', {
+    name: 'operationNotSupported',
+    message: 'The update operation is not supported',
+    status: 422
+  }],
   ['CreatorNotFound', {
     name: 'CreatorNotFound',
     message: 'Creator not found',

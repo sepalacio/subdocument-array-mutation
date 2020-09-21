@@ -1,11 +1,16 @@
 'use strict'
 
 const test = require('ava')
+const sinon = require('sinon')
 
 const { logExpressError } = require('../appErrorsListeners')
 const addAppListeners = require('../addAppListeners')
 
-const appEmitter = addAppListeners()
+const connection = {
+  on: sinon.stub()
+}
+
+const appEmitter = addAppListeners(connection)
 
 test('add logExpressError listener to appEmitter', (t) => {
   const actual = appEmitter.listeners('expressError')
